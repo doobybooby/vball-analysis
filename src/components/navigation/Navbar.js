@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom'
 
 export const Navbar = () => {
   return (
-    <div>
+    <nav className='flex-row justify-around'>
       <NavLink to='/home'>Home</NavLink>
       <NavLink to='/tutorials'>Tutorial</NavLink>
-    </div>
+    </nav>
   )
 }
