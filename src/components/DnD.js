@@ -1,25 +1,36 @@
-import { OpenCvProvider } from 'opencv-react'
-import React from 'react'
+import React, { useState } from 'react'
 import { FileUploader } from 'react-drag-drop-files'
-import { OpenCV } from './OpenCV'
+import { ScreenShot } from './ScreenShot';
+
 export const DnD = () => {
 
   const onUpload = (file) => {
     const vid = URL.createObjectURL(file)
-    console.log(vid)
+    let video = document.getElementById('video')
+    let source = document.getElementById('source')
+
+    source.setAttribute('src', vid)
+    video.load()
   }
+
 
   return (
     <div>
-      <OpenCvProvider>
-        <OpenCV />
-      </OpenCvProvider>
       <h1>Drag-n-Drop a video</h1>
-      <FileUploader 
-        name='video'
-        types={['MP4']}
-        handleChange={onUpload}
-      />
+      <div className='flex-row flex-center'>
+        <FileUploader 
+          name='video'
+          types={['MP4']}
+          handleChange={onUpload}
+        />
+      </div>
+
+      <div>
+        <video id='video' controls>
+          <source id='source' type='video/mp4' />
+        </video>
+      </div> 
+
     </div>
   )
 }
