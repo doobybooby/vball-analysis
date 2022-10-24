@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { FileUploader } from 'react-drag-drop-files'
-import { ScreenShot } from './ScreenShot';
 
 export const DnD = () => {
 
@@ -8,11 +7,9 @@ export const DnD = () => {
     const vid = URL.createObjectURL(file)
     let video = document.getElementById('video')
     let source = document.getElementById('source')
-
     source.setAttribute('src', vid)
     video.load()
   }
-
 
   return (
     <div>
