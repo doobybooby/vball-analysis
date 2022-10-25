@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 export const ScreenShot = () => {
-
+  
   const [screenShot, setScreenShot] = useState(false);
   const [screenShotImg, setScreenShotImg ] = useState('')
 
@@ -21,12 +21,14 @@ export const ScreenShot = () => {
   }
 
   return (
-    <div className='flex-col' style={{paddin:'1rem'}}>
-      <button onClick={takeScreenShot}>Screenshot</button>
+    <div className='flex-col' style={{paddin:'1rem'}} >
+      <button onClick={takeScreenShot}> Screenshot </button>
       {
-        screenShot ? <img  src={screenShotImg} width='300px'/>
-        : <p>no screen shot</p>
+        screenShot 
+          ? <img src={screenShotImg} width='300px' />
+          : <p>no screen shot</p>
       }
     </div>
   )
+
 }
